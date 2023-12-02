@@ -1,0 +1,19 @@
+from twisted.web.server import Site
+from twisted.internet import reactor
+from twisted.web.resource import Resource
+
+class WebSite(Resource):
+    isLeaf = True
+
+    def render_GET(self, request):
+        content = b'<html><body>Hello!</body></html>'
+        
+        if request.args[b'name'][0] != "":
+            content = b'<html><body>Hello ' + request.args[b'name'][0] + b'!</body></html>'
+
+        return content
+
+listen_site = Site(WebSite())
+reactor.listenTCP(8080, listen_site)
+reactor.run()
+
