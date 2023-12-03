@@ -2,6 +2,8 @@ from twisted.internet import reactor
 from twisted.web.server import Site
 from twisted.web.resource import Resource
 import subprocess
+from twisted.python import log
+log.startLogging(open('/var/log/name.log', 'a'))
 
 class WebSite(Resource):
     isLeaf = True
