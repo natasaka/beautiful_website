@@ -1,0 +1,4 @@
+#enter username and the greeting in desired language
+
+Mario|Chiao
+Jack|Hello
